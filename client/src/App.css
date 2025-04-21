@@ -1,0 +1,282 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f8fa;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.App-header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.App-header h1 {
+  font-size: 2.4rem;
+  margin: 0;
+  color: #0366d6;
+}
+
+/* Proxy Input Container */
+.proxy-input-container {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.proxy-input-container h2 {
+  margin-top: 0;
+  color: #24292e;
+}
+
+.input-hint {
+  color: #586069;
+  margin-bottom: 16px;
+}
+
+.proxy-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.form-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.sample-button {
+  background-color: #0969da;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sample-button:hover {
+  background-color: #0550ae;
+}
+
+.sample-button:disabled {
+  background-color: #a4c9f3;
+  cursor: not-allowed;
+}
+
+.check-button {
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.check-button:hover {
+  background-color: #2c974b;
+}
+
+.check-button:disabled {
+  background-color: #94d3a2;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.error-message {
+  background-color: #ffebe9;
+  border: 1px solid #ffc1c0;
+  color: #cf222e;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.loading-message {
+  background-color: #f1f8ff;
+  border: 1px solid #c8e1ff;
+  color: #0366d6;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Results Container */
+.results-container {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.results-container h2 {
+  margin-top: 0;
+  color: #24292e;
+}
+
+/* Results Statistics */
+.results-stats {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 5px 15px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: #586069;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.stat-item.working .stat-value {
+  color: #2ea44f;
+}
+
+.stat-item.failed .stat-value {
+  color: #cf222e;
+}
+
+/* Results Table */
+.table-container {
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.results-table th, 
+.results-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.results-table th {
+  background-color: #f6f8fa;
+  font-weight: 600;
+  color: #24292e;
+}
+
+.working-row {
+  background-color: #f0fff4;
+}
+
+.failed-row {
+  background-color: #fff5f5;
+}
+
+.status-working {
+  color: #2ea44f;
+  font-weight: 600;
+}
+
+.status-failed {
+  color: #cf222e;
+  font-weight: 600;
+}
+
+.error-cell {
+  color: #cf222e;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .results-stats {
+    flex-direction: column;
+  }
+  
+  .stat-item {
+    padding: 10px 0;
+  }
+  
+  .results-table {
+    font-size: 12px;
+  }
+  
+  .results-table th, 
+  .results-table td {
+    padding: 8px 10px;
+  }
+}
+
+code {
+  background-color: #f6f8fa;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* Server Status */
+.server-status {
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.server-status.checking {
+  background-color: #fff8c5;
+  color: #9a6700;
+}
+
+.server-status.connected {
+  background-color: #dafbe1;
+  color: #116329;
+}
+
+.server-status.error {
+  background-color: #ffebe9;
+  color: #cf222e;
+}

@@ -1,0 +1,59 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Yes, you absolutely **can build a web-based proxy checker tool** that:
+
+- Accepts a list of proxy credentials (IP:PORT or IP:PORT:USER:PASS)  
+- Checks if each proxy works (i.e., can connect to the internet)  
+- Fetches the **proxy's IP, country, region, and geolocation info**
+
+---
+
+## ✅ High-Level Workflow
+
+1. **Frontend Input** → Users paste proxy lines  
+2. **Backend Validation** → Test if proxy connects and makes a successful request  
+3. **Geo Lookup** → Call a service like `ipapi`, `ipinfo.io`, or `ipgeolocation.io` using the proxy IP  
+4. **Display Results** → Working/Not Working, IP, Country, City, etc.
+
+---
+
+## 🔍 Best Code Stack for This (Other Than Laravel)
+
+### 🥇 **Node.js + Express + Puppeteer or Axios**
+Highly suitable due to:
+- **Native async support** (you’ll deal with lots of network calls)
+- Puppeteer + Proxy support for headless validation (e.g., if you want browser-level testing)
+- Easy to use with `axios` or `got` and `tunnel` libraries for HTTP proxy testing
+
+✅ **Why it's great:**
+- Lightweight and fast for I/O-bound tasks
+- Easily deployable on platforms like Vercel, Railway, or even simple VPS
+- Tons of NPM libraries for proxying, geolocation, and concurrency
+
+---
+## 🛠️ Example Tools and Libraries
+
+| Task                  | Node.js                 | Python                     |
+|-----------------------|-------------------------|----------------------------|
+| HTTP proxy check      | `axios + https-proxy-agent` | `httpx`, `aiohttp`         |
+| SOCKS proxy check     | `socks-proxy-agent`     | `PySocks`, `requests[socks]`|
+| Geo IP lookup         | `ipinfo`, `ipapi`, `geoip-lite` | `ipinfo`, `geoip2`         |
+| UI Framework          | React/Vue (frontend)    | HTMX, JS or React/Vue      |
+
+---
+
+## 🌐 Sample Stack Recommendation
+
+If you want something simple, scalable, and modern:
+
+### **Stack:**
+- **Frontend:** React + Tailwind (to paste proxies, show output)
+- **Backend:** Node.js + Express
+- **Proxy Check:** Axios with `https-proxy-agent`
+- **Geo Lookup:** Use [ipinfo.io](mdc:https:/ipinfo.io) or [ipapi.co](mdc:https:/ipapi.co)
+- **Deployment:** Vercel (frontend) + Railway/Render (Node backend)
+
+---
